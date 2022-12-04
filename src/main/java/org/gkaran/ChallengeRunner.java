@@ -2,10 +2,7 @@ package org.gkaran;
 
 import org.apache.commons.cli.*;
 import org.apache.commons.lang3.StringUtils;
-import org.gkaran.challenge.Day;
-import org.gkaran.challenge.Day01;
-import org.gkaran.challenge.Day02;
-import org.gkaran.challenge.Day03;
+import org.gkaran.challenge.*;
 
 import java.util.Scanner;
 
@@ -25,6 +22,7 @@ public class ChallengeRunner {
                 case "01" -> new Day01();
                 case "02" -> new Day02();
                 case "03" -> new Day03();
+                case "04" -> new Day04();
                 default -> throw new RuntimeException("invalid day number");
             };
 
