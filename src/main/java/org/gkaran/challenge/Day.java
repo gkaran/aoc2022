@@ -1,6 +1,6 @@
 package org.gkaran.challenge;
 
-public interface Day {
-    String solvePartA(String input);
-    String solvePartB(String input);
+public interface Day<T,R> {
+    T solvePartA(String input);
+    R solvePartB(String input);
 }

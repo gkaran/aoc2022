@@ -25,12 +25,12 @@ class Day01Test {
 
     @Test
     void solvePartA() {
-        Assertions.assertEquals("24000", new Day01().solvePartA(input));
+        Assertions.assertEquals(24000, new Day01().solvePartA(input));
     }
 
     @Test
     void solvePartB() {
-        Assertions.assertEquals("45000", new Day01().solvePartB(input));
+        Assertions.assertEquals(45000, new Day01().solvePartB(input));
     }
 
 }

@@ -3,23 +3,23 @@ package org.gkaran.challenge;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Day01 implements Day {
+public class Day01 implements Day<Long, Long> {
     @Override
-    public String solvePartA(String input) {
+    public Long solvePartA(String input) {
         return Arrays.stream(input.split("\n\n"))
                 .mapToLong(this::sumForElf)
                 .max()
-                .orElseThrow() + "";
+                .orElseThrow();
     }
 
     @Override
-    public String solvePartB(String input) {
+    public Long solvePartB(String input) {
         return Arrays.stream(input.split("\n\n"))
                 .map(this::sumForElf)
                 .sorted(Comparator.reverseOrder())
                 .limit(3)
                 .mapToLong(Long::longValue)
-                .sum() + "";
+                .sum();
     }
 
     private Long sumForElf(String elfCalories) {

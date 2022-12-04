@@ -4,6 +4,7 @@ import org.apache.commons.cli.*;
 import org.apache.commons.lang3.StringUtils;
 import org.gkaran.challenge.Day;
 import org.gkaran.challenge.Day01;
+import org.gkaran.challenge.Day02;
 
 import java.util.Scanner;
 
@@ -21,6 +22,7 @@ public class ChallengeRunner {
             String dayArg = StringUtils.leftPad(line.getOptionValue("day"), 2, '0');
             Day day = switch(dayArg) {
                 case "01" -> new Day01();
+                case "02" -> new Day02();
                 default -> throw new RuntimeException("invalid day number");
             };
 
