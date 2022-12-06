@@ -24,6 +24,7 @@ public class ChallengeRunner {
                 case "03" -> new Day03();
                 case "04" -> new Day04();
                 case "05" -> new Day05();
+                case "06" -> new Day06();
                 default -> throw new RuntimeException("invalid day number");
             };
 
