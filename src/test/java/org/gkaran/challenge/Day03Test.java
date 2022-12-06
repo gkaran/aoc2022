@@ -3,8 +3,6 @@ package org.gkaran.challenge;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class Day03Test {
 
     @Test

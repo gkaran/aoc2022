@@ -6,8 +6,8 @@ public class Day04 implements Day<Long, Long> {
     @Override
     public Long solvePartA(String input) {
         return Arrays.stream(input.split("\n"))
-            .filter(this::isFullyOverlappingPair)
-            .count();
+                .filter(this::isFullyOverlappingPair)
+                .count();
     }
 
     @Override

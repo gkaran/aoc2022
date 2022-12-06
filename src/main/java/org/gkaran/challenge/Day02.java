@@ -19,15 +19,15 @@ public class Day02 implements Day<Integer, Integer> {
     @Override
     public Integer solvePartA(String input) {
         var combinations = Map.of(
-            ROCK + " X", DRAW_SCORE + ROCK_SCORE,
-            ROCK + " Y", WIN_SCORE + PAPER_SCORE,
-            ROCK + " Z", LOSE_SCORE + SCISSORS_SCORE,
-            PAPER + " X", LOSE_SCORE + ROCK_SCORE,
-            PAPER + " Y", DRAW_SCORE + PAPER_SCORE,
-            PAPER + " Z", WIN_SCORE + SCISSORS_SCORE,
-            SCISSORS + " X", WIN_SCORE + ROCK_SCORE,
-            SCISSORS + " Y", LOSE_SCORE + PAPER_SCORE,
-            SCISSORS + " Z", DRAW_SCORE + SCISSORS_SCORE
+                ROCK + " X", DRAW_SCORE + ROCK_SCORE,
+                ROCK + " Y", WIN_SCORE + PAPER_SCORE,
+                ROCK + " Z", LOSE_SCORE + SCISSORS_SCORE,
+                PAPER + " X", LOSE_SCORE + ROCK_SCORE,
+                PAPER + " Y", DRAW_SCORE + PAPER_SCORE,
+                PAPER + " Z", WIN_SCORE + SCISSORS_SCORE,
+                SCISSORS + " X", WIN_SCORE + ROCK_SCORE,
+                SCISSORS + " Y", LOSE_SCORE + PAPER_SCORE,
+                SCISSORS + " Z", DRAW_SCORE + SCISSORS_SCORE
         );
         return Arrays.stream(input.split("\n")).mapToInt(combinations::get).sum();
     }

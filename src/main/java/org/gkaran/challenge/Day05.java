@@ -7,14 +7,14 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Day05 implements Day<String, String>{
+public class Day05 implements Day<String, String> {
     @Override
     public String solvePartA(String input) {
         var rows = input.split("\n");
         var stacks = getStacks(rows);
         getMoves(rows).forEach(m -> {
-            for(int i = 0; i < m[0]; i++) {
-                stacks.get(m[2]-1).push(stacks.get(m[1]-1).remove());
+            for (int i = 0; i < m[0]; i++) {
+                stacks.get(m[2] - 1).push(stacks.get(m[1] - 1).remove());
             }
         });
 
@@ -28,11 +28,11 @@ public class Day05 implements Day<String, String>{
         Deque<String> temp = new ArrayDeque<>();
         getMoves(rows).forEach(m -> {
             // TODO: Not the best approach. Try to revisit in the future
-            for(int i = 0; i < m[0]; i++) {
-                temp.push(stacks.get(m[1]-1).remove());
+            for (int i = 0; i < m[0]; i++) {
+                temp.push(stacks.get(m[1] - 1).remove());
             }
-            for(int i = 0; i < m[0]; i++) {
-                stacks.get(m[2]-1).push(temp.remove());
+            for (int i = 0; i < m[0]; i++) {
+                stacks.get(m[2] - 1).push(temp.remove());
             }
         });
         return getResult(stacks);
@@ -50,13 +50,15 @@ public class Day05 implements Day<String, String>{
                 .collect(Collector.of(
                         ArrayList<Deque<String>>::new,
                         (list, value) -> {
-                            for(int i = 0; i < value.size(); i++) {
+                            for (int i = 0; i < value.size(); i++) {
                                 if (list.size() <= i) list.add(new ArrayDeque<>());
                                 var stack = list.get(i);
                                 if (StringUtils.isNotBlank(value.get(i))) stack.push(value.get(i));
                             }
                         },
-                        (r1, r2) -> { throw new UnsupportedOperationException("Parallel not supported"); }
+                        (r1, r2) -> {
+                            throw new UnsupportedOperationException("Parallel not supported");
+                        }
                 ));
     }
 

@@ -28,13 +28,13 @@ public class Day03 implements Day<Integer, Integer> {
 
     private int getRucksackPriority(String rucksack) {
         var first = toCharSet(rucksack.substring(0, rucksack.length() / 2));
-        var second = toCharSet(rucksack.substring(rucksack.length()/2));
+        var second = toCharSet(rucksack.substring(rucksack.length() / 2));
         first.retainAll(second);
         return first.stream().mapToInt(this::getPriority).sum();
     }
 
     private int getGroupPriority(List<String> group) {
-        return  group.stream()
+        return group.stream()
                 .map(this::toCharSet)
                 .reduce((elf1, elf2) -> {
                     elf1.retainAll(elf2);
@@ -46,20 +46,22 @@ public class Day03 implements Day<Integer, Integer> {
 
     private <T> Collector<T, List<List<T>>, List<List<T>>> pagingCollector(int pageSize) {
         return Collector.of(
-                ArrayList<List<T>>::new,
+                ArrayList::new,
                 (list, value) -> {
                     var block = (list.isEmpty() ? null : list.get(list.size() - 1));
-                    if(block == null || block.size() == pageSize) {
+                    if (block == null || block.size() == pageSize) {
                         list.add(block = new ArrayList<>(pageSize));
                     }
                     block.add(value);
                 },
-                (r1, r2) -> { throw new UnsupportedOperationException("Parallel not supported"); }
+                (r1, r2) -> {
+                    throw new UnsupportedOperationException("Parallel not supported");
+                }
         );
     }
 
     private Set<Character> toCharSet(String str) {
-        return str.chars().mapToObj(c -> (char)c).collect(Collectors.toSet());
+        return str.chars().mapToObj(c -> (char) c).collect(Collectors.toSet());
     }
 
     private int getPriority(char c) {
